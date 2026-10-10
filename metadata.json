@@ -1,0 +1,6 @@
+{
+  "name": "La Tribu — Espacio de Eventos y Celebraciones",
+  "description": "Alquiler de local para eventos familiares, cumpleaños y celebraciones con calendario de disponibilidad en tiempo real, reserva directa sin registro y panel administrativo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

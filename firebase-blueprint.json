@@ -1,0 +1,277 @@
+{
+  "entities": {
+    "Reservation": {
+      "title": "Reservation",
+      "description": "A venue booking request or manual phone reservation for La Tribu event space.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the creator or admin managing the reservation.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name of the customer reserving the venue.",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name (apellidos) of the customer reserving the venue.",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "date": {
+          "type": "string",
+          "description": "ISO date string YYYY-MM-DD of the event reservation.",
+          "minLength": 10,
+          "maxLength": 10,
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "startTime": {
+          "type": "string",
+          "description": "Start time of the reservation in HH:MM format.",
+          "minLength": 5,
+          "maxLength": 5,
+          "pattern": "^[0-9]{2}:[0-9]{2}$"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "End time of the reservation in HH:MM format.",
+          "minLength": 5,
+          "maxLength": 5,
+          "pattern": "^[0-9]{2}:[0-9]{2}$"
+        },
+        "slotType": {
+          "type": "string",
+          "description": "Selected time block type (morning, afternoon, full_day, custom).",
+          "enum": ["morning", "afternoon", "full_day", "custom"],
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Type of celebration (Cumpleanos infantil, Bautizo / Comunion, Reunion familiar, Taller / Evento).",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "guests": {
+          "type": "integer",
+          "description": "Estimated number of attendees."
+        },
+        "status": {
+          "type": "string",
+          "description": "Reservation status lifecycle.",
+          "enum": ["pending", "confirmed", "cancelled", "completed"],
+          "minLength": 6,
+          "maxLength": 20
+        },
+        "source": {
+          "type": "string",
+          "description": "Booking channel (web, phone, whatsapp, walkin).",
+          "enum": ["web", "phone", "whatsapp", "walkin"],
+          "minLength": 3,
+          "maxLength": 20
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional special requests, extras, or internal admin notes.",
+          "minLength": 0,
+          "maxLength": 500
+        },
+        "totalPrice": {
+          "type": "number",
+          "description": "Calculated price in EUR for the reservation."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the reservation was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the reservation was last updated."
+        }
+      },
+      "required": [
+        "ownerId",
+        "firstName",
+        "lastName",
+        "date",
+        "startTime",
+        "endTime",
+        "slotType",
+        "eventType",
+        "guests",
+        "status",
+        "source",
+        "totalPrice",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "ReservationPrivateContact": {
+      "title": "ReservationPrivateContact",
+      "description": "Isolated PII contact information (phone and email) for a reservation.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the reservation owner.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "reservationId": {
+          "type": "string",
+          "description": "Parent reservation document ID.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Customer contact phone number.",
+          "minLength": 6,
+          "maxLength": 30
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Customer contact email address.",
+          "minLength": 5,
+          "maxLength": 120
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of contact creation."
+        }
+      },
+      "required": [
+        "ownerId",
+        "reservationId",
+        "phone",
+        "email",
+        "createdAt"
+      ]
+    },
+    "CalendarBlock": {
+      "title": "CalendarBlock",
+      "description": "Administrative date or time-slot block on the venue availability calendar.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "UID of the admin who created the calendar block.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "date": {
+          "type": "string",
+          "description": "Blocked ISO date YYYY-MM-DD.",
+          "minLength": 10,
+          "maxLength": 10,
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "slotType": {
+          "type": "string",
+          "description": "Blocked slot (morning, afternoon, full_day, custom).",
+          "enum": ["morning", "afternoon", "full_day", "custom"],
+          "minLength": 4,
+          "maxLength": 20
+        },
+        "startTime": {
+          "type": "string",
+          "description": "Start time of the block in HH:MM format.",
+          "minLength": 5,
+          "maxLength": 5,
+          "pattern": "^[0-9]{2}:[0-9]{2}$"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "End time of the block in HH:MM format.",
+          "minLength": 5,
+          "maxLength": 5,
+          "pattern": "^[0-9]{2}:[0-9]{2}$"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for blocking (e.g., Maintenance, Private Event, Holiday).",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the block was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the block was updated."
+        }
+      },
+      "required": [
+        "ownerId",
+        "date",
+        "slotType",
+        "startTime",
+        "endTime",
+        "reason",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Trusted administrator record for venue management.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified administrator email address.",
+          "minLength": 5,
+          "maxLength": 120
+        },
+        "role": {
+          "type": "string",
+          "description": "Role identifier, strictly admin.",
+          "enum": ["admin"],
+          "minLength": 5,
+          "maxLength": 10
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        }
+      },
+      "required": ["email", "role", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/reservations/{reservationId}": {
+      "schema": { "$ref": "#/entities/Reservation" },
+      "description": "Stores venue reservation schedules, statuses, and non-PII event metadata."
+    },
+    "/reservations/{reservationId}/private/{infoId}": {
+      "schema": { "$ref": "#/entities/ReservationPrivateContact" },
+      "description": "Isolated subcollection storing customer PII (phone and email) for a reservation."
+    },
+    "/calendarBlocks/{blockId}": {
+      "schema": { "$ref": "#/entities/CalendarBlock" },
+      "description": "Stores manual date and time-slot blocks set by the venue administrator."
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Stores trusted administrator UIDs for privilege verification."
+    }
+  }
+}

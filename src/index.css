@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cream: #F8EFE1;
+    --surface-ivory: #FFF9F1;
+    --sage-primary: #9AA08A;
+    --sage-dark: #707A63;
+    --sage-deep: #4A5240;
+    --honey-primary: #F1BF70;
+    --honey-hover: #E5AE56;
+    --rose-dusty: #DFAEA1;
+    --rose-hover: #CC8F81;
+    --wood-toasted: #C39D70;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F8EFE1;
+    color: #707A63;
+  }
+
+  h1, h3, h4, .font-display {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  h2, .font-subtitle {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

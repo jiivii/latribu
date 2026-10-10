@@ -1,0 +1,116 @@
+{
+  "reservations": [
+    {
+      "id": "res_1001",
+      "code": "TRIBU-4821",
+      "firstName": "Lucía",
+      "lastName": "Martínez Navarro",
+      "phone": "644 82 19 30",
+      "email": "lucia.martinez@ejemplo.es",
+      "date": "2026-10-03",
+      "startTime": "16:00",
+      "endTime": "21:00",
+      "slotType": "afternoon",
+      "eventType": "Cumpleaños infantil",
+      "guests": 28,
+      "extras": [
+        "limpieza",
+        "arco_globos"
+      ],
+      "notes": "Cumpleaños de Mateo (3 años). Necesitamos la trona de madera disponible.",
+      "totalPrice": 290,
+      "status": "confirmed",
+      "source": "web",
+      "createdAt": "2026-09-28T14:20:00Z"
+    },
+    {
+      "id": "res_1002",
+      "code": "TRIBU-5190",
+      "firstName": "Carlos",
+      "lastName": "Sánchez Ortega",
+      "phone": "619 34 70 12",
+      "email": "carlos.sanchez@ejemplo.es",
+      "date": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "14:30",
+      "slotType": "morning",
+      "eventType": "Bautizo / Comunión",
+      "guests": 35,
+      "extras": [
+        "limpieza",
+        "mesa_dulce"
+      ],
+      "notes": "Bautizo familiar de Valeria. Llegará catering a las 10:15.",
+      "totalPrice": 235,
+      "status": "pending",
+      "source": "web",
+      "createdAt": "2026-09-29T18:10:00Z"
+    },
+    {
+      "id": "res_1003",
+      "code": "TRIBU-5304",
+      "firstName": "Elena",
+      "lastName": "Gómez Serrano",
+      "phone": "678 91 04 55",
+      "email": "elena.gomez@ejemplo.es",
+      "date": "2026-10-10",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "slotType": "full_day",
+      "eventType": "Primer añito / Baby Shower",
+      "guests": 42,
+      "extras": [
+        "limpieza",
+        "arco_globos",
+        "mesa_dulce"
+      ],
+      "notes": "Reserva realizada por llamada telefónica. Señal de 100€ abonada por Bizum.",
+      "totalPrice": 435,
+      "status": "confirmed",
+      "source": "phone",
+      "createdAt": "2026-09-29T11:05:00Z"
+    },
+    {
+      "id": "res_1004",
+      "code": "TRIBU-5412",
+      "firstName": "Javier",
+      "lastName": "Ruiz Molina",
+      "phone": "655 12 88 90",
+      "email": "javier.ruiz@ejemplo.es",
+      "date": "2026-10-17",
+      "startTime": "16:00",
+      "endTime": "21:00",
+      "slotType": "afternoon",
+      "eventType": "Cumpleaños infantil",
+      "guests": 24,
+      "extras": [
+        "limpieza"
+      ],
+      "notes": "Solicitan confirmar si pueden entrar 15 minutos antes para colocar la tarta en nevera.",
+      "totalPrice": 225,
+      "status": "pending",
+      "source": "web",
+      "createdAt": "2026-09-30T09:45:00Z"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "blk_2001",
+      "date": "2026-10-12",
+      "slotType": "full_day",
+      "startTime": "09:00",
+      "endTime": "23:00",
+      "reason": "Festivo Nacional — Uso privado del local La Tribu",
+      "createdAt": "2026-09-25T10:00:00Z"
+    },
+    {
+      "id": "blk_2002",
+      "date": "2026-10-15",
+      "slotType": "morning",
+      "startTime": "10:00",
+      "endTime": "14:30",
+      "reason": "Mantenimiento y revisión zona infantil de madera",
+      "createdAt": "2026-09-27T12:00:00Z"
+    }
+  ]
+}
